@@ -1,16 +1,14 @@
 #!/bin/bash
 
-# RC files
 cd $(dirname $BASH_SOURCE)
 BASE=$(pwd)
 
-for rc in *rc *config tmux.conf zlogin gitignore_global rspec; do
+for rc in *rc *config gitignore-global rspec; do
   mkdir -pv bak
   [ -e ~/.$rc ] && mv -v ~/.$rc bak/.$rc
   ln -sfv $BASE/$rc ~/.$rc
 done
 
-# scripts
 mkdir -p ~/bin
 for bin in $BASE/bin/*; do
   ln -svf $bin ~/bin
@@ -21,17 +19,3 @@ curl -L https://cdn.rawgit.com/zsh-users/antigen/v2.1.1/bin/antigen.zsh > ~/.ant
 
 mkdir -p ~/.zshrc.d
 cp zshrc.d/* ~/.zshrc.d/
-
-curl -L https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf > PowerlineSymbols.otf
-curl -L https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf > 10-powerline-symbols.conf
-
-mkdir -p ~/.fonts/
-mv PowerlineSymbols.otf ~/.fonts/
-fc-cache -vf ~/.fonts/
-
-mkdir -p ~/.config/fontconfig/conf.d/
-mv 10-powerline-symbols.conf ~/.config/fontconfig/conf.d/
-
-mkdir -p ~/.mc/
-curl -L https://raw.githubusercontent.com/peel/mc/master/solarized.ini > ~/.mc/solarized.ini
-./install-vim
