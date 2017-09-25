@@ -132,8 +132,7 @@ Plug 'gregsexton/gitv', { 'on': 'Gitv' }
 call plug#end()
 endif
 
-colorscheme solarized
-" colorscheme Tomorrow-Night
+colorscheme Tomorrow-Night
 set background=light
 
 " Local config
