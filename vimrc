@@ -132,8 +132,8 @@ Plug 'gregsexton/gitv', { 'on': 'Gitv' }
 call plug#end()
 endif
 
-colorscheme Tomorrow-Night
-set background=light
+" colorscheme Tomorrow-Night
+" set background=light
 
 " Local config
 if filereadable($HOME . "/.vimrc.local")
