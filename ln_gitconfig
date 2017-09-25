@@ -1,0 +1,18 @@
+[color]
+	ui = auto
+[user]
+	name = Marcin Kot
+	email = marcin@kotu.pl
+[core]
+	excludesfile = ~/.gitignore-global
+	pager = less -F -X
+	editor = vim
+[push]
+	default = current
+[include]
+  path = ~/.gitconfig-local
+[diff]
+  tool = vimdiff
+  noprefix = true
+[merge]
+  tool = vimdiff

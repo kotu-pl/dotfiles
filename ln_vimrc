@@ -1,0 +1,130 @@
+let mapleader      = ' '
+let maplocalleader = ' '
+
+" Use Vim settings, rather then Vi settings (much better!).
+" " This must be first, because it changes other options as a side effect.
+set nocompatible
+
+" ================ Undofile ======================
+
+set undodir=~/.vim/undo
+set undofile
+set undolevels=1000 "maximum number of changes that can be undone
+set undoreload=10000 "maximum number lines to save for undo on a buffer reload
+
+" ================ Indentation ======================
+
+set autoindent
+set smartindent
+set smarttab
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
+set expandtab
+
+" ================ Search ===========================
+
+set incsearch       " Find the next match as we type the search
+set hlsearch        " Highlight searches by default
+set ignorecase      " Ignore case when searching...
+set smartcase       " ...unless we type a capital
+
+" Show line numbers
+set number
+" Rendering
+set ttyfast
+
+syntax enable         " Enable syntax highlighting
+filetype on           " Enable filetype detection
+filetype indent on    " Enable filetype-specific indenting
+filetype plugin on    " Enable filetype-specific plugins
+
+" ================ Panes/Splits ====================
+
+" more natural new window creation
+set splitbelow
+set splitright
+
+" nawigate w/o Ctrl-w
+" nnoremap <C-J> <C-W><C-J>
+" nnoremap <C-K> <C-W><C-K>
+" nnoremap <C-L> <C-W><C-L>
+" nnoremap <C-H> <C-W><C-H>
+
+" better splitting 
+
+nnoremap <C-W>\ :sp<CR>
+nnoremap <C-W><bar> :vsp<CR>
+
+" dynamic resizing
+nnoremap <C-W>+ :exe "resize " . (winheight(0) * 3/2)<CR>
+nnoremap <C-W>- :exe "resize " . (winheight(0) * 2/3)<CR>
+
+" Tabs
+" next/prev with Shift 
+nnoremap H gT
+nnoremap L gt
+
+" Vim-like tab navigation
+nnoremap th  :tabfirst<CR>
+nnoremap tk  :tabnext<CR>
+nnoremap tj  :tabprev<CR>
+nnoremap tl  :tablast<CR>
+
+nnoremap tt  :tabedit<Space>
+nnoremap tn  :tabnext<Space>
+nnoremap tm  :tabm<Space>
+nnoremap td  :tabclose<CR>
+
+" ================ Turn Off Swap Files ==============
+"
+set noswapfile
+set nobackup
+set nowb
+
+map <C-s> <esc>:w<CR>
+imap <C-s> <esc>:w<CR>
+
+" Quit
+nnoremap <Leader>q :q<cr>
+nnoremap <Leader>Q :qa!<cr>
+
+" <F10> | NERD Tree
+inoremap <F10> <esc>:NERDTreeToggle<cr>
+nnoremap <F10> :NERDTreeToggle<cr>
+
+" ===============  VIM-PLUG BLOCK ==================
+
+call plug#begin('~/.vim/plugged')
+
+" == Browse
+" Plug 'wincent/command-t'
+Plug 'scrooloose/nerdtree'
+Plug 'ctrlpvim/ctrlp.vim'
+
+" == Code
+Plug 'pangloss/vim-javascript'
+Plug 'plasticboy/vim-markdown'
+Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-haml'
+Plug 'tpope/vim-rails'
+Plug 'thoughtbot/vim-rspec'
+
+" == Theme
+Plug 'altercation/vim-colors-solarized'
+
+call plug#end()
+
+" Color scheme (terminal)
+set t_Co=256
+set background=dark
+let g:solarized_termcolors=256
+let g:solarized_termtrans=1
+
+" Workaround for docker
+" colorscheme solarized
+
+" Local config
+if filereadable($HOME . "/.vimrc.local")
+  source ~/.vimrc.local
+endif
