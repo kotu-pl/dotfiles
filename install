@@ -21,8 +21,12 @@ mkdir -p ~/.zshrc.d
 cp $BASE/zshrc.d/* ~/.zshrc.d/
 
 # Install Powerline fonts 
-git clone https://github.com/powerline/fonts.git --depth=1
-cd fonts
-./install.sh
-cd ..
-rm -rf fonts
+curl -L https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf > /tmp/PowerlineSymbols.otf
+curl -L https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf > /tmp/10-powerline-symbols.conf
+
+mkdir -p ~/.fonts/
+mv /tmp/PowerlineSymbols.otf ~/.fonts/
+fc-cache -vf ~/.fonts/
+
+mkdir -p ~/.config/fontconfig/conf.d/
+mv /tmp/10-powerline-symbols.conf ~/.config/fontconfig/conf.d/
