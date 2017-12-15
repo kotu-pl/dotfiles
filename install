@@ -19,13 +19,3 @@ curl -L https://cdn.rawgit.com/zsh-users/antigen/v2.1.1/bin/antigen.zsh > ~/.ant
 
 mkdir -p ~/.zshrc.d
 cp $BASE/zshrc.d/* ~/.zshrc.d/
-
-curl -L https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf > PowerlineSymbols.otf
-curl -L https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf > 10-powerline-symbols.conf
-
-mkdir -p ~/.fonts/
-mv PowerlineSymbols.otf ~/.fonts/
-fc-cache -vf ~/.fonts/
-
-mkdir -p ~/.config/fontconfig/conf.d/
-mv 10-powerline-symbols.conf ~/.config/fontconfig/conf.d/
