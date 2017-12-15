@@ -16,7 +16,6 @@ done
 
 mkdir ~/.antigen
 curl qLsSf -o ~/.antigen/antigen.zsh https://git.io/antigen
-source ~/.antigen/antigen.zsh
 
 mkdir -p ~/.zshrc.d
 cp $BASE/zshrc.d/* ~/.zshrc.d/

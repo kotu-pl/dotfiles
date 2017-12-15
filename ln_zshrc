@@ -1,5 +1,7 @@
 PATH=$PATH:$HOME/bin
 
+source ~/.antigen/antigen.zsh
+
 antigen use oh-my-zsh
 
 DISABLE_AUTO_TITLE="true"
