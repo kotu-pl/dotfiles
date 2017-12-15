@@ -21,21 +21,21 @@ mkdir -p ~/.zshrc.d
 cp $BASE/zshrc.d/* ~/.zshrc.d/
 
 # Install Powerline fonts 
-# curl -L https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf > /tmp/PowerlineSymbols.otf
-# curl -L https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf > /tmp/10-powerline-symbols.conf
+curl -L https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf > /tmp/PowerlineSymbols.otf
+curl -L https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf > /tmp/10-powerline-symbols.conf
 
-# mkdir -p ~/.fonts/
-# mv /tmp/PowerlineSymbols.otf ~/.fonts/
-# fc-cache -vf ~/.fonts/
+mkdir -p ~/.fonts/
+mv /tmp/PowerlineSymbols.otf ~/.fonts/
+fc-cache -vf ~/.fonts/
 
-# mkdir -p ~/.config/fontconfig/conf.d/
-# mv /tmp/10-powerline-symbols.conf ~/.config/fontconfig/conf.d/
+mkdir -p ~/.config/fontconfig/conf.d/
+mv /tmp/10-powerline-symbols.conf ~/.config/fontconfig/conf.d/
 
 # clone
-git clone https://github.com/ryanoasis/nerd-fonts.git
+#git clone https://github.com/ryanoasis/nerd-fonts.git
 # install
-cd nerd-fonts
-./install.sh
+#cd nerd-fonts
+#./install.sh
 # clean-up a bit
-cd ..
-rm -rf nerd-fonts
+#cd ..
+#rm -rf nerd-fonts
