@@ -14,8 +14,8 @@ for bin in $BASE/bin/*; do
   ln -svf $bin ~/bin
 done
 
-mkdir ~/.antigen
-curl qLsSf -o ~/.antigen/antigen.zsh https://git.io/antigen
+mkdir -p ~/.antigen
+curl -L https://cdn.rawgit.com/zsh-users/antigen/v2.1.1/bin/antigen.zsh > ~/.antigen/antigen.zsh
 
 mkdir -p ~/.zshrc.d
 cp $BASE/zshrc.d/* ~/.zshrc.d/
