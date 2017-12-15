@@ -5,6 +5,8 @@ BASE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 for config_to_link in ln_*; do
   mkdir -pv bak
   config_name=${config_to_link#*_}
+  echo $config_name
+  echo $config_to_link#
   [ -e ~/.$config_name ] && mv -v ~/.$config_name bak/.$config_name
   ln -sfv $BASE/$config_to_link ~/.$config_name
 done
