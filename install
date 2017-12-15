@@ -1,12 +1,12 @@
 #!/bin/bash
 
-cd $(dirname $BASH_SOURCE)
-BASE=$(pwd)
+BASE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-for rc in *rc *config gitignore-global rspec; do
+for config_to_link in cp_*; do
   mkdir -pv bak
-  [ -e ~/.$rc ] && mv -v ~/.$rc bak/.$rc
-  ln -sfv $BASE/$rc ~/.$rc
+  config_name=${config_to_link#*_}
+  [ -e ~/.$config_name ] && mv -v ~/.$config_name bak/.$config_name
+  ln -sfv $BASE/$config_to_link ~/.$config_name
 done
 
 mkdir -p ~/bin
