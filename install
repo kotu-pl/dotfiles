@@ -9,13 +9,13 @@ for config_to_link in ln_*; do
   ln -sfv $BASE/$config_to_link ~/.$config_name
 done
 
-mkdir -p ~/bin
-for bin in $BASE/bin/*; do
-  ln -svf $bin ~/bin
-done
+#mkdir -p ~/bin
+#for bin in $BASE/bin/*; do
+#  ln -svf $bin ~/bin
+#done
 
-mkdir -p ~/.antigen
-curl -L https://cdn.rawgit.com/zsh-users/antigen/v2.1.1/bin/antigen.zsh > ~/.antigen/antigen.zsh
+#mkdir -p ~/.antigen
+#curl -L https://cdn.rawgit.com/zsh-users/antigen/v2.1.1/bin/antigen.zsh > ~/.antigen/antigen.zsh
 
-mkdir -p ~/.zshrc.d
-cp zshrc.d/* ~/.zshrc.d/
+#mkdir -p ~/.zshrc.d
+#cp zshrc.d/* ~/.zshrc.d/
