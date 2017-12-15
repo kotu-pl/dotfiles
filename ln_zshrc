@@ -14,7 +14,7 @@ antigen bundle history
 
 export DEFAULT_USER=`whoami`
 
-antigen theme robbyrussell
+antigen theme ys
 
 # Make ctrl + s work
 vim()
