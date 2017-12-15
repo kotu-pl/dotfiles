@@ -14,8 +14,9 @@ for bin in $BASE/bin/*; do
   ln -svf $bin ~/bin
 done
 
-mkdir -p ~/.antigen
-curl -L https://cdn.rawgit.com/zsh-users/antigen/v2.1.1/bin/antigen.zsh > ~/.antigen/antigen.zsh
+mkdir ~/.antigen
+curl qLsSf -o ~/.antigen/antigen.zsh https://git.io/antigen
+source ~/.antigen/antigen.zsh
 
 mkdir -p ~/.zshrc.d
 cp $BASE/zshrc.d/* ~/.zshrc.d/
@@ -30,12 +31,3 @@ fc-cache -vf ~/.fonts/
 
 mkdir -p ~/.config/fontconfig/conf.d/
 mv /tmp/10-powerline-symbols.conf ~/.config/fontconfig/conf.d/
-
-# clone
-#git clone https://github.com/ryanoasis/nerd-fonts.git
-# install
-#cd nerd-fonts
-#./install.sh
-# clean-up a bit
-#cd ..
-#rm -rf nerd-fonts
