@@ -2,7 +2,7 @@
 
 BASE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-for config_to_link in ln_*; do
+for config_to_link in $BASE/ln_*; do
   mkdir -pv bak
   config_name=${config_to_link#*_}
   echo $config_name
