@@ -3,21 +3,19 @@
 BASE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 for config_to_link in $BASE/ln_*; do
-  mkdir -pv bak
+  mkdir -pv $BASE/backup
   config_name=${config_to_link#*_}
-  echo $config_name
-  echo $config_to_link#
-  [ -e ~/.$config_name ] && mv -v ~/.$config_name bak/.$config_name
-  ln -sfv $BASE/$config_to_link ~/.$config_name
+  [ -e ~/.$config_name ] && mv -v ~/.$config_name $BASE/backup/.$config_name
+  ln -sfv $config_to_link ~/.$config_name
 done
 
-#mkdir -p ~/bin
-#for bin in $BASE/bin/*; do
-#  ln -svf $bin ~/bin
-#done
+mkdir -p ~/bin
+for bin in $BASE/bin/*; do
+  ln -svf $bin ~/bin
+done
 
-#mkdir -p ~/.antigen
-#curl -L https://cdn.rawgit.com/zsh-users/antigen/v2.1.1/bin/antigen.zsh > ~/.antigen/antigen.zsh
+mkdir -p ~/.antigen
+curl -L https://cdn.rawgit.com/zsh-users/antigen/v2.1.1/bin/antigen.zsh > ~/.antigen/antigen.zsh
 
-#mkdir -p ~/.zshrc.d
-#cp zshrc.d/* ~/.zshrc.d/
+mkdir -p ~/.zshrc.d
+cp $BASE/zshrc.d/* ~/.zshrc.d/
