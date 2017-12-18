@@ -38,8 +38,9 @@ if ! zgen saved; then
   zgen oh-my-zsh plugins/extract
   zgen oh-my-zsh plugins/history
 
+  zgen oh-my-zsh themes/agnoster
   #Theme load powerlevel9k
-  zgen load bhilburn/powerlevel9k powerlevel9k
+  #zgen load bhilburn/powerlevel9k powerlevel9k
   
   #Other plugins
   zgen load zsh-users/zsh-syntax-highlighting
