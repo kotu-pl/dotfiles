@@ -1,7 +1,12 @@
 #!/bin/sh
 set -e 
 
-BASE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+if [ -z "$DOTFILES_DIR" ]; then
+  BASE=${DOTFILES_DIR
+else
+  BASE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+fi 
+
 
 for config_to_link in $BASE/ln_*; do
   mkdir -pv $BASE/backup
