@@ -1,11 +1,7 @@
 #!/bin/bash
 set -e 
 
-if [ -n $DOTFILES_DIR ]; then
-  BASE=$DOTFILES_DIR
-else
-  BASE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-fi 
+BASE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 for config_to_link in $BASE/ln_*; do
   mkdir -pv $BASE/backup
@@ -19,9 +15,12 @@ for bin in $BASE/bin/*; do
   ln -svf $bin ~/bin
 done
 
-mkdir -p ~/.antigen
-curl -L https://cdn.rawgit.com/zsh-users/antigen/v2.1.1/bin/antigen.zsh > ~/.antigen/antigen.zsh
+#mkdir -p ~/.antigen
+#curl -L https://cdn.rawgit.com/zsh-users/antigen/v2.1.1/bin/antigen.zsh > ~/.antigen/antigen.zsh
+#mkdir -p ~/.zshrc.d
+#cp $BASE/zshrc.d/* ~/.zshrc.d/
 
+git clone https://github.com/tarjoilija/zgen.git ~/.zgen
 mkdir -p ~/.zshrc.d
 cp $BASE/zshrc.d/* ~/.zshrc.d/
 
@@ -35,5 +34,4 @@ fc-cache -vf ~/.fonts/
 
 mkdir -p ~/.config/fontconfig/conf.d/
 mv /tmp/10-powerline-symbols.conf ~/.config/fontconfig/conf.d/
-
-exec "$@"
+#exec "$@"

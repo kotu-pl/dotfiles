@@ -1,73 +1,42 @@
-PATH=$PATH:$HOME/bin
+export TERM="xterm-256color"
 
-source ~/.antigen/antigen.zsh
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+setopt autocd
+bindkey -e
+# End of lines configured by zsh-newuser-install
+# The following lines were added by compinstall
+#zstyle :compinstall filename '.zshrc'
 
-antigen use oh-my-zsh
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
 
-DISABLE_AUTO_TITLE="true"
+# load zgen
+source "${HOME}/.zgen/zgen.zsh"
 
-antigen bundle common-aliases
-antigen bundle cp
-antigen bundle extract
-antigen bundle git
-antigen bundle history
+# if the init scipt doesn't exist
+if ! zgen saved; then
+  echo "Creating a zgen save"
+  zgen oh-my-zsh
+  
+  # plugins
+  zgen oh-my-zsh
+  zgen oh-my-zsh plugins/git
+  zgen oh-my-zsh plugins/sudo
+  zgen oh-my-zsh plugins/command-not-found
+  zgen oh-my-zsh plugins/docker
+  zgen oh-my-zsh plugins/docker-compose
 
-export DEFAULT_USER=`whoami`
+  #Theme load powerlevel9k
+  zgen load bhilburn/powerlevel9k powerlevel9k
+  
+  #Other plugins
+  zgen load zsh-users/zsh-syntax-highlighting
+  zgen load zsh-users/zsh-autosuggestions    
 
-POWERLEVEL9K_INSTALLATION_PATH=$ANTIGEN_BUNDLES/bhilburn/powerlevel9k
-POWERLEVEL9K_SHORTEN_STRATEGY="truncate_middle"
-POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status vi_mode)
-POWERLEVEL9K_STATUS_VERBOSE=false
-POWERLEVEL9K_COLOR_SCHEME='light'
-POWERLEVEL9K_ALWAYS_SHOW_CONTEXT=true
-
-antigen theme bhilburn/powerlevel9k powerlevel9k --no-local-clone
-# antigen theme agnoster # ys
-
-# Make ctrl + s work
-vim()
-{
-    local STTYOPTS="$(stty --save)"
-    stty stop '' -ixoff
-    command vim "$@"
-    stty "$STTYOPTS"
-}
-
-export VISUAL=vim
-export EDITOR=$VISUAL
-
-# VI-Mode
-# general activation
-bindkey -v
-
-# set some nice hotkeys
-bindkey '^P' up-history
-bindkey '^N' down-history
-bindkey '^?' backward-delete-char
-bindkey '^h' backward-delete-char
-bindkey '^w' backward-kill-word
-bindkey '^r' history-incremental-search-backward
-
-# make it more responsive
-export KEYTIMEOUT=1
-
-if [ -d $HOME/.zshrc.d ]; then
-  for file in $HOME/.zshrc.d/*.zsh; do
-    source $file
-  done
+  # generate the init script from plugins above
+  zgen save
 fi
-
-# Local config
-[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
-
-antigen apply
-
-unalias rm
-unalias cp
-unalias mv
-
-unsetopt share_history
-setopt  NO_NOMATCH
-setopt hist_ignore_all_dups
-unset PAGER
