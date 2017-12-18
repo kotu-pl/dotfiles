@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 set -e 
 
 if [ -n $DOTFILES_DIR ]; then
@@ -24,15 +24,6 @@ curl -L https://cdn.rawgit.com/zsh-users/antigen/v2.1.1/bin/antigen.zsh > ~/.ant
 
 mkdir -p ~/.zshrc.d
 cp $BASE/zshrc.d/* ~/.zshrc.d/
-
-# clone
-#git clone https://github.com/powerline/fonts.git --depth=1
-# install
-#cd fonts
-#./install.sh
-# clean-up a bit
-#cd ..
-#rm -rf fonts
 
 # Install Powerline fonts 
 curl -L https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf > /tmp/PowerlineSymbols.otf
