@@ -3,7 +3,7 @@ set -e
 
 printenv
 
-if [ -z $DOTFILES_DIR ]; then
+if [ -n $DOTFILES_DIR ]; then
   echo $DOTFILES_DIR
   echo "juuuhuuuuu"
   BASE=$DOTFILES_DIR
