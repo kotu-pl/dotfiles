@@ -24,6 +24,10 @@ git clone https://github.com/tarjoilija/zgen.git ~/.zgen
 mkdir -p ~/.zshrc.d
 cp $BASE/zshrc.d/* ~/.zshrc.d/
 
+git clone https://github.com/ryanoasis/nerd-fonts.git /tmp/fonts
+chmod +x /tmp/fonts/install.sh && ./tmp/fonts/install.sh
+rm -rf /tmp/fonts
+
 # Install Powerline fonts 
 curl -L https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf > /tmp/PowerlineSymbols.otf
 curl -L https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf > /tmp/10-powerline-symbols.conf
