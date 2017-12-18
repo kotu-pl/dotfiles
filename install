@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/bin/sh
+set -e 
 
 BASE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
@@ -39,3 +40,5 @@ rm -rf fonts
 
 #mkdir -p ~/.config/fontconfig/conf.d/
 #mv /tmp/10-powerline-symbols.conf ~/.config/fontconfig/conf.d/
+
+exec "$@"
