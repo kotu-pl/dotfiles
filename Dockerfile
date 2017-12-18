@@ -28,7 +28,7 @@ USER kotu
 ADD https://$GITHUB_TOKEN:x-oauth-basic@api.github.com/repos/$GITHUB_USER/$GITHUB_REPO/git/refs/heads/$GITHUB_BRANCH /tmp/version.json
 RUN git clone -b $GITHUB_BRANCH https://$GITHUB_TOKEN:x-oauth-basic@github.com/$GITHUB_USER/$GITHUB_REPO.git $DOTFILES_DIR
 RUN chmod +x $DOTFILES_DIR/install
-RUN $DOTFILES_DIR/install
+RUN /bin/bash $DOTFILES_DIR/install
 
 LABEL maintainer="Marcin Kot marcin@kotu.pl" \
       version="1.0"
