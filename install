@@ -25,7 +25,7 @@ mkdir -p ~/.zshrc.d
 cp $BASE/zshrc.d/* ~/.zshrc.d/
 
 git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git /tmp/fonts
-chmod +x /tmp/fonts/install.sh && ./tmp/fonts/install.sh
+chmod +x /tmp/fonts/install.sh && sh /tmp/fonts/install.sh
 rm -rf /tmp/fonts
 
 # Install Powerline fonts 
