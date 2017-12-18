@@ -29,12 +29,3 @@ fc-cache -vf ~/.fonts/
 
 mkdir -p ~/.config/fontconfig/conf.d/
 mv /tmp/10-powerline-symbols.conf ~/.config/fontconfig/conf.d/
-
-# clone
-git clone https://github.com/powerline/fonts.git --depth=1
-# install
-cd fonts
-./install.sh
-# clean-up a bit
-cd ..
-rm -rf fonts

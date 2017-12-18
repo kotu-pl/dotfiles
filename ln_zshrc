@@ -21,6 +21,13 @@ export KEYTIMEOUT=1
 DISABLE_AUTO_TITLE="true"
 export DEFAULT_USER=`whoami`
 
+if [ -d $HOME/.zshrc.d ]; then
+  for file in $HOME/.zshrc.d/*.zsh; do
+    source $file
+  done
+fi
+
+
 # if the init scipt doesn't exist
 if ! zgen saved; then
   echo "Creating a zgen save"
@@ -47,12 +54,6 @@ if ! zgen saved; then
 
   # generate the init script from plugins above
   zgen save
-fi
-
-if [ -d $HOME/.zshrc.d ]; then
-  for file in $HOME/.zshrc.d/*.zsh; do
-    source $file
-  done
 fi
 
 # Local config
