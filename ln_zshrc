@@ -50,11 +50,11 @@ if ! zgen saved; then
   zgen save
 fi
 
-if [ -d $HOME/.zshrc.d ]; then
-  for file in $HOME/.zshrc.d/*.zsh; do
-    source $file
-  done
-fi
+#if [ -d $HOME/.zshrc.d ]; then
+#  for file in $HOME/.zshrc.d/*.zsh; do
+#    source $file
+#  done
+#fi
 
 # Local config
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
