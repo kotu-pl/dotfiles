@@ -20,13 +20,22 @@ curl -L https://cdn.rawgit.com/zsh-users/antigen/v2.1.1/bin/antigen.zsh > ~/.ant
 mkdir -p ~/.zshrc.d
 cp $BASE/zshrc.d/* ~/.zshrc.d/
 
+# clone
+git clone https://github.com/powerline/fonts.git --depth=1
+# install
+cd fonts
+./install.sh
+# clean-up a bit
+cd ..
+rm -rf fonts
+
 # Install Powerline fonts 
-curl -L https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf > /tmp/PowerlineSymbols.otf
-curl -L https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf > /tmp/10-powerline-symbols.conf
+#curl -L https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf > /tmp/PowerlineSymbols.otf
+#curl -L https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf > /tmp/10-powerline-symbols.conf
 
-mkdir -p ~/.fonts/
-mv /tmp/PowerlineSymbols.otf ~/.fonts/
-fc-cache -vf ~/.fonts/
+#mkdir -p ~/.fonts/
+#mv /tmp/PowerlineSymbols.otf ~/.fonts/
+#fc-cache -vf ~/.fonts/
 
-mkdir -p ~/.config/fontconfig/conf.d/
-mv /tmp/10-powerline-symbols.conf ~/.config/fontconfig/conf.d/
+#mkdir -p ~/.config/fontconfig/conf.d/
+#mv /tmp/10-powerline-symbols.conf ~/.config/fontconfig/conf.d/
