@@ -38,9 +38,7 @@ if ! zgen saved; then
   zgen oh-my-zsh plugins/extract
   zgen oh-my-zsh plugins/history
 
-  #zgen oh-my-zsh themes/agnoster
-  #Theme load powerlevel9k
-  zgen load bhilburn/powerlevel9k powerlevel9k
+  zgen oh-my-zsh themes/agnoster
   
   #Other plugins
   zgen load zsh-users/zsh-syntax-highlighting
@@ -50,11 +48,11 @@ if ! zgen saved; then
   zgen save
 fi
 
-#if [ -d $HOME/.zshrc.d ]; then
-#  for file in $HOME/.zshrc.d/*.zsh; do
-#    source $file
-#  done
-#fi
+if [ -d $HOME/.zshrc.d ]; then
+  for file in $HOME/.zshrc.d/*.zsh; do
+    source $file
+  done
+fi
 
 # Local config
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
