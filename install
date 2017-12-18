@@ -2,7 +2,7 @@
 set -e 
 
 if [ -z "$DOTFILES_DIR" ]; then
-  BASE=${DOTFILES_DIR
+  BASE=$DOTFILES_DIR
 else
   BASE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 fi 
