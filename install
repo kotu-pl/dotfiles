@@ -26,7 +26,7 @@ cp $BASE/zshrc.d/* ~/.zshrc.d/
 
 git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git /tmp/fonts
 chmod +x /tmp/fonts/install.sh 
-/tmp/fonts/install.sh
+./tmp/fonts/install.sh
 
 # Install Powerline fonts 
 curl -L https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf > /tmp/PowerlineSymbols.otf
