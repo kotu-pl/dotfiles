@@ -1,7 +1,14 @@
-FROM ubuntu:latest
+FROM ubuntu:xenial
 
 RUN apt-get update
-RUN apt-get install -y vim git curl zsh tmux ruby locales fontconfig 
+RUN apt-get install -y vim git curl zsh ruby locales fontconfig \
+    python-software-properties software-properties-common
+
+# tmux 2.3
+RUN apt-get update
+RUN add-apt-repository -yu ppa:pi-rho/dev
+RUN apt-get install -y tmux-next=2.7~20171218~bzr4009+21-1ubuntu1~ppa0~ubuntu16.04.1
+
 RUN gem install tmuxinator
 
 RUN adduser --shell /bin/zsh --gecos 'kotu' --disabled-password kotu
