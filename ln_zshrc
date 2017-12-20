@@ -16,6 +16,7 @@ export VISUAL=vim
 export EDITOR=$VISUAL
 # make it more responsive
 export KEYTIMEOUT=1
+[-z "$TMUX"] && export TERM=xterm-256color
 
 # theme related varaibles (?)
 DISABLE_AUTO_TITLE="true"
