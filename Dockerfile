@@ -40,4 +40,6 @@ RUN $DOTFILES_DIR/install
 LABEL maintainer="Marcin Kot marcin@kotu.pl" \
       version="1.0"
 
+RUN mkdir /app/kotu # temporary hot reloading
+
 CMD ["zsh", "-l"]
