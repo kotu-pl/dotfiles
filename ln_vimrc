@@ -54,22 +54,41 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+" better splitting 
+" window
+nmap <leader>swh :topleft  vnew<CR>
+nmap <leader>swl :botright vnew<CR>
+nmap <leader>swk :topleft  new<CR>
+nmap <leader>swj :botright new<CR>
+" buffer
+nmap <leader>sh  :leftabove  vnew<CR>
+nmap <leader>sl  :rightbelow vnew<CR>
+nmap <leader>sk  :leftabove  new<CR>
+nmap <leader>sj  :rightbelow new<CR>
+
+" easier resasing 
+map <C>- <C-W>-
+map <C>+ <C-W>+
+
+" dynamic resizing
+nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
+nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
+
 " Tabs
 " next/prev with Shift 
 nnoremap H gT
 nnoremap L gt
 
-" Tab navigation like Firefox.
-nnoremap <C-S-tab> :tabprevious<CR>
-nnoremap <C-tab>   :tabnext<CR>
-nnoremap <C-t>     :tabnew<CR>
-inoremap <C-S-tab> <Esc>:tabprevious<CR>i
-inoremap <C-tab>   <Esc>:tabnext<CR>i
-inoremap <C-t>     <Esc>:tabnew<CR>
+" Vim-like tab navigation
+nnoremap th  :tabfirst<CR>
+nnoremap tj  :tabnext<CR>
+nnoremap tk  :tabprev<CR>
+nnoremap tl  :tablast<CR>
 
-" For opening and closing tabs
-nnoremap <C-Insert> :tabnew<CR>
-nnoremap <C-Delete> :tabclose<CR>
+nnoremap tt  :tabedit<Space>
+nnoremap tn  :tabnext<Space>
+nnoremap tm  :tabm<Space>
+nnoremap td  :tabclose<CR>
 
 " ================ Turn Off Swap Files ==============
 "
