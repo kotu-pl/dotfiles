@@ -23,10 +23,12 @@ bindkey '^?' backward-delete-char
 bindkey '^h' backward-delete-char
 bindkey '^w' backward-kill-word
 bindkey '^r' history-incremental-search-backward
+bindkey '^k' kill-line
+bindkey '^u' backward-kill-line
 
 function zle-line-init zle-keymap-select {
     VIM_PROMPT="%{$fg_bold[yellow]%} [% NORMAL]%  %{$reset_color%}"
-    RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}$(git_custom_status) $EPS1"
+    RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/} $EPS1"
     zle reset-prompt
 }
 
@@ -54,3 +56,6 @@ setopt hist_ignore_space
 ## git issue fix (zsh: no matches found: HEAD^)
 setopt NO_NOMATCH                                                              
 unset PAGER 
+
+##
+bindkey '^ ' autosuggest-accept
