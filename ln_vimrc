@@ -59,8 +59,9 @@ nnoremap <F10> :NERDTreeToggle<cr>
 " ===============  VIM-PLUG BLOCK ==================
 
 call plug#begin('~/.vim/bundle')
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree'
 Plug 'altercation/vim-colors-solarized'
+Plug 'altercationncent/command-t'
 call plug#end()
 
 " Color scheme (terminal)
