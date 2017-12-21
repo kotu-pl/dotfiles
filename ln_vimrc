@@ -56,22 +56,22 @@ nnoremap <Leader>Q :qa!<cr>
 inoremap <F10> <esc>:NERDTreeToggle<cr>
 nnoremap <F10> :NERDTreeToggle<cr>
 
-" ============================================================================
-" VIM-PLUG BLOCK {{{
-" ============================================================================
+" ===============  VIM-PLUG BLOCK ==================
 
-silent! if plug#begin('~/.vim/plugged')
-
+call plug#begin('~/.vim/plugged')
 " Browsing
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 " Themes
 Plug 'altercation/vim-colors-solarized'
-
 call plug#end()
-endif
+
+" Color scheme (terminal)
+set t_Co=256
+set background=light
+let g:solarized_termcolors=256
+let g:solarized_termtrans=1
 
 colorscheme solarized
-set background=light
 
 " Local config
 if filereadable($HOME . "/.vimrc.local")
