@@ -29,3 +29,5 @@ fc-cache -vf ~/.fonts/
 
 mkdir -p ~/.config/fontconfig/conf.d/
 mv /tmp/10-powerline-symbols.conf ~/.config/fontconfig/conf.d/
+
+./install-vim

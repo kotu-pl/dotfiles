@@ -1,4 +1,7 @@
 # General
+
+# TODO, nice options from: https://github.com/ricbra/zsh-config/blob/master/zshrc
+
 ## make it more responsive
 export KEYTIMEOUT=1
 export VISUAL=vim
