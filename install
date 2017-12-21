@@ -11,11 +11,10 @@ for config_to_link in $BASE/ln_*; do
 done
 
 mkdir -p ~/bin
-export PATH=$PATH:~/bin
 
 if ! which tmux && which tmux-next &> /dev/null
   then
-    echo "#!/bin/sh\ntmux-next" > ~/bin/tmux
+    echo '#!/bin/sh\ntmux-next' > ~/bin/tmux
     chmod +x ~/bin/tmux
 fi
 
