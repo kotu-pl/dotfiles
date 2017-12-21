@@ -62,7 +62,7 @@ call plug#begin('~/.vim/plugged')
 " Browsing
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 " Themes
-Plug 'altercation/vim-colors-solarized'
+Plug 'aaltercation/vim-colors-solarized'
 call plug#end()
 
 " Color scheme (terminal)
