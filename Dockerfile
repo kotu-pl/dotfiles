@@ -26,8 +26,9 @@ ENV GITHUB_BRANCH master
 ENV TERM xterm-256color
 # set locales
 RUN locale-gen "en_US.UTF-8"
-RUN LC_ALL=en_US.UTF-8
-RUN LANG=en_US.UTF-8
+ENV LC_ALL en_US.UTF-8
+ENV LC_CTYPE en_US.UTF-8
+ENV LANG en_US.UTF-8
 
 USER kotu
 

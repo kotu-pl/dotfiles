@@ -39,6 +39,17 @@ filetype on           " Enable filetype detection
 filetype indent on    " Enable filetype-specific indenting
 filetype plugin on    " Enable filetype-specific plugins
 
+" ================ Panes/Splits ====================
+
+" more natural new window creation
+set splitbelow
+set splitright
+" nawigate w/o Ctrl-w
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
 " ================ Turn Off Swap Files ==============
 "
 set noswapfile
