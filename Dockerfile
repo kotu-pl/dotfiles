@@ -26,7 +26,7 @@ ARG GITHUB_BRANCH=master
 
 # TMUX 
 ENV TERM xterm-256color
-ENV ZSH_TMUX_AUTOSTART_ONCE=true
+ENV ZSH_TMUX_AUTOSTART=true
 
 # set locales
 RUN locale-gen "en_US.UTF-8"
