@@ -14,8 +14,9 @@ mkdir -p ~/bin
 export PATH=$PATH:~/bin
 
 if ! which tmux && which tmux-next &> /dev/null
-  cat "#!/bin/sh\ntmux-next" > $BASE/bin/tmux
-  chmod +x $BASE/bin/tmux
+  then
+    cat "#!/bin/sh\ntmux-next" > $BASE/bin/tmux
+    chmod +x $BASE/bin/tmux
 fi
 
 for bin in $BASE/bin/*; do
