@@ -18,7 +18,7 @@ ENV HOME /home/kotu
 WORKDIR $HOME
 
 # add env variables 
-ARG DOTFILES_DIR $HOME/dotfiles
+ARG DOTFILES_DIR=$HOME/dotfiles
 ARG GITHUB_TOKEN=f651db0c9da4e2b472a142057b42b6531a1a43a7
 ARG GITHUB_USER=kotu-pl
 ARG GITHUB_REPO=dotfiles_new
