@@ -56,12 +56,12 @@ set splitright
 
 " better splitting 
 
-nnoremap <C-W> - :sp
-nnoremap <C-W> | :vsp
+nnoremap <C-W>- :sp<CR>
+nnoremap <C-W>| :vsp<CR>
 
 " dynamic resizing
-nnoremap <C-W> + :exe "resize " . (winheight(0) * 3/2)<CR>
-nnoremap <C-W> - :exe "resize " . (winheight(0) * 2/3)<CR>
+nnoremap <C-W>+ :exe "resize " . (winheight(0) * 3/2)<CR>
+nnoremap <C-W>- :exe "resize " . (winheight(0) * 2/3)<CR>
 
 " Tabs
 " next/prev with Shift 
