@@ -23,7 +23,11 @@ ARG GITHUB_TOKEN=f651db0c9da4e2b472a142057b42b6531a1a43a7
 ARG GITHUB_USER=kotu-pl
 ARG GITHUB_REPO=dotfiles_new
 ARG GITHUB_BRANCH=master
+
+# TMUX 
 ENV TERM xterm-256color
+ENV ZSH_TMUX_AUTOSTART_ONCE=true
+
 # set locales
 RUN locale-gen "en_US.UTF-8"
 ENV LC_ALL en_US.UTF-8
