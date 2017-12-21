@@ -56,7 +56,7 @@ set splitright
 
 " better splitting 
 
-nnoremap <C-W>- :sp<CR>
+nnoremap <C-W>\ :sp<CR>
 nnoremap <C-W><bar> :vsp<CR>
 
 " dynamic resizing
