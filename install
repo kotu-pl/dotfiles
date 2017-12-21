@@ -15,8 +15,8 @@ export PATH=$PATH:~/bin
 
 if ! which tmux && which tmux-next &> /dev/null
   then
-    cat "#!/bin/sh\ntmux-next" > $BASE/bin/tmux
-    chmod +x $BASE/bin/tmux
+    cat "#!/bin/sh\ntmux-next" > ~/bin/tmux
+    chmod +x ~/bin/tmux
 fi
 
 for bin in $BASE/bin/*; do
