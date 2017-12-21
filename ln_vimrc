@@ -44,6 +44,7 @@ filetype plugin on    " Enable filetype-specific plugins
 " more natural new window creation
 set splitbelow
 set splitright
+
 " nawigate w/o Ctrl-w
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -89,9 +90,9 @@ nnoremap <F10> :NERDTreeToggle<cr>
 call plug#begin('~/.vim/plugged')
 
 " == Browse
-Plug 'scrooloose/nerdtree'
 " Plug 'wincent/command-t'
-Plug "ctrlpvim/ctrlp.vim"
+Plug 'scrooloose/nerdtree'
+Plug 'ctrlpvim/ctrlp.vim'
 
 " == Code
 Plug 'pangloss/vim-javascript'

@@ -18,11 +18,11 @@ ENV HOME /home/kotu
 WORKDIR $HOME
 
 # add env variables 
-ENV DOTFILES_DIR $HOME/dotfiles
-ENV GITHUB_TOKEN f651db0c9da4e2b472a142057b42b6531a1a43a7
-ENV GITHUB_USER kotu-pl
-ENV GITHUB_REPO dotfiles_new
-ENV GITHUB_BRANCH master
+ARG DOTFILES_DIR $HOME/dotfiles
+ARG GITHUB_TOKEN=f651db0c9da4e2b472a142057b42b6531a1a43a7
+ARG GITHUB_USER=kotu-pl
+ARG GITHUB_REPO=dotfiles_new
+ARG GITHUB_BRANCH=master
 ENV TERM xterm-256color
 # set locales
 RUN locale-gen "en_US.UTF-8"
