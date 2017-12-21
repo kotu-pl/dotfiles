@@ -58,7 +58,7 @@ nnoremap <F10> :NERDTreeToggle<cr>
 
 " ===============  VIM-PLUG BLOCK ==================
 
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.vim/bundle')
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'altercation/vim-colors-solarized'
 call plug#end()
@@ -69,7 +69,7 @@ set background=light
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
 
-"# colorscheme solarized
+colorscheme solarized
 
 " Local config
 if filereadable($HOME . "/.vimrc.local")
