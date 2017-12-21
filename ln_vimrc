@@ -69,9 +69,8 @@ set background=light
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
 
-if empty($SKIP_VIM_SKIN)
-  colorscheme solarized
-endif
+" Workaround for docker
+" colorscheme solarized
 
 " Local config
 if filereadable($HOME . "/.vimrc.local")
