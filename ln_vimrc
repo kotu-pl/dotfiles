@@ -34,7 +34,7 @@ set number
 " Rendering
 set ttyfast
 
-syntax on             " Enable syntax highlighting
+syntax enable         " Enable syntax highlighting
 filetype on           " Enable filetype detection
 filetype indent on    " Enable filetype-specific indenting
 filetype plugin on    " Enable filetype-specific plugins
@@ -64,13 +64,12 @@ Plug 'altercation/vim-colors-solarized'
 call plug#end()
 
 " Color scheme (terminal)
-syntax enable
 set t_Co=256
 set background=light
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
 
-if has('vim_starting')
+if empty($SKIP_VIM_SKIN)
   colorscheme solarized
 endif
 
