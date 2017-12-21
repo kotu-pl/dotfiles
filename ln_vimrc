@@ -87,9 +87,23 @@ nnoremap <F10> :NERDTreeToggle<cr>
 " ===============  VIM-PLUG BLOCK ==================
 
 call plug#begin('~/.vim/plugged')
+
+" == Browse
 Plug 'scrooloose/nerdtree'
+" Plug 'wincent/command-t'
+Plug "ctrlpvim/ctrlp.vim"
+
+" == Code
+Plug 'pangloss/vim-javascript'
+Plug 'plasticboy/vim-markdown'
+Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-haml'
+Plug 'tpope/vim-rails'
+Plug 'thoughtbot/vim-rspec'
+
+" == Theme
 Plug 'altercation/vim-colors-solarized'
-Plug 'wincent/command-t'
+
 call plug#end()
 
 " Color scheme (terminal)
