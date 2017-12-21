@@ -1,6 +1,8 @@
 # General
 
 # TODO, nice options from: https://github.com/ricbra/zsh-config/blob/master/zshrc
+# ? DISABLE_AUTO_TITLE="true" 
+# ? export DEFAULT_USER=`whoami`
 
 ## make it more responsive
 export KEYTIMEOUT=1

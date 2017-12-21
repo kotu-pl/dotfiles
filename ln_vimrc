@@ -31,6 +31,9 @@ set smartcase       " ...unless we type a capital
 
 " Show line numbers
 set number
+" Show white characters
+set listchars=eol:¬,tab:>-,trail:~,extends:>,precedes:<,space:·
+set list 
 " Rendering
 set ttyfast
 

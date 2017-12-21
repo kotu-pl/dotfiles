@@ -12,17 +12,6 @@ compinit
 # load zgen
 source "${HOME}/.zgen/zgen.zsh"
 
-export VISUAL=vim
-export EDITOR=$VISUAL
-# make it more responsive
-export KEYTIMEOUT=1
-# 256 colours
-export TERM=xterm-256color
-
-# theme related varaibles (?)
-DISABLE_AUTO_TITLE="true"
-export DEFAULT_USER=`whoami`
-
 # if the init scipt doesn't exist
 if ! zgen saved; then
   echo "Creating a zgen save"
@@ -38,9 +27,10 @@ if ! zgen saved; then
   zgen oh-my-zsh plugins/common-aliases
   zgen oh-my-zsh plugins/cp
   zgen oh-my-zsh plugins/extract
-  zgen oh-my-zsh plugins/history
+  zgen oh-my-zsh plugins/tmux
 
-  zgen oh-my-zsh themes/agnoster
+  zgen load bhilburn/powerlevel9k powerlevel9k
+  #zgen oh-my-zsh themes/agnoster
   
   #Other plugins
   zgen load zsh-users/zsh-syntax-highlighting
