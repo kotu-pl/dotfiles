@@ -14,7 +14,8 @@ mkdir -p ~/bin
 
 if ! which tmux && which tmux-next &> /dev/null
   then
-    echo '#!/bin/sh\ntmux-next' > ~/bin/tmux
+    echo '#!/bin/sh' > ~/bin/tmux
+    echo 'tmux-next' >> ~/bin/tmux
     chmod +x ~/bin/tmux
 fi
 
