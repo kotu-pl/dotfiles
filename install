@@ -6,32 +6,34 @@ BASE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 for config_to_link in $BASE/ln_*; do
   mkdir -pv $BASE/backup
   config_name=${config_to_link#*_}
-  [ -e ~/.$config_name ] && mv -v ~/.$config_name $BASE/backup/.$config_name
+  [ -e ~/.$config_name ] && [ ! -L ~/.$config_name ] && mv -v ~/.$config_name $BASE/backup/.$config_name
   ln -sfv $config_to_link ~/.$config_name
 done
 
 mkdir -p ~/bin
 
-for executable in $(find $BASE/bin -type f); do
+for executable in $BASE/bin/ln_*; do
   mkdir -pv $BASE/backup/bin
-  [ -e ~/bin/$executable ] && mv -v ~/bin/$executable $BASE/backup/bin/$executable
-  ln -svf $executable ~/bin/$executable
+  exec_name=${executable#*_}
+  [ -e ~/bin/$exec_name ] && [ ! -L ~/bin/$exec_name ] && mv -v ~/bin/$exec_name $BASE/backup/bin/$exec_name
+  ln -svf $executable ~/bin/$exec_name
 done
 
-if ! which tmux && which tmux-next &> /dev/null
-  then
-    echo '#!/bin/sh' > ~/bin/tmux
-    echo 'tmux-next' >> ~/bin/tmux
-    chmod +x ~/bin/tmux
+if ! which tmux && which tmux-next &> /dev/null; then
+  echo '#!/bin/sh' > ~/bin/tmux
+  echo 'tmux-next' >> ~/bin/tmux
+  chmod +x ~/bin/tmux
 fi
 
 # ASDF manager
-if ! which asdf
-  then
-    git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch master
+if ! which asdf; then
+  git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch master
 fi
 
-git clone https://github.com/tarjoilija/zgen.git ~/.zgen
+if [ ! -d ~/.zgen ]; then
+  git clone https://github.com/tarjoilija/zgen.git ~/.zgen
+fi
+
 mkdir -p ~/.zshrc.d
 cp $BASE/zshrc.d/* ~/.zshrc.d/
 
