@@ -12,8 +12,10 @@ done
 
 mkdir -p ~/bin
 
-for bin in $(find $BASE/bin -type f); do
-  ln -svf $bin ~/bin
+for executable in $(find $BASE/bin -type f); do
+  mkdir -pv $BASE/backup/bin
+  [ -e ~/bin/$executable ] && mv -v ~/bin/$executable $BASE/backup/bin/$executable
+  ln -svf $executable ~/bin/$executable
 done
 
 if ! which tmux && which tmux-next &> /dev/null
