@@ -16,3 +16,5 @@
   noprefix = true
 [merge]
   tool = vimdiff
+[credential]
+	helper = cache --timeout=86400
