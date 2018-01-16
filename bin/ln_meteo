@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+require 'meteo_pl'
+
+MeteoPl::Exec::Shell.call(ARGV)
