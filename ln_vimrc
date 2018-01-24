@@ -100,7 +100,17 @@ call plug#begin('~/.vim/plugged')
 " == Browse
 " Plug 'wincent/command-t'
 Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'FelikZ/ctrlp-py-matcher'
+
+" Navigation
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'edkolev/tmuxline.vim'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'ludovicchabant/vim-gutentags'
+" Plug 'mileszs/ack.vim'
+" Plug 'tpope/vim-fugitive'
 
 " == Code
 Plug 'pangloss/vim-javascript'
@@ -109,9 +119,16 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-haml'
 Plug 'tpope/vim-rails'
 Plug 'thoughtbot/vim-rspec'
+Plug 'tpope/vim-endwise'
+Plug 'sheerun/vim-polyglot'
+Plug 'jiangmiao/auto-pairs'
+" Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 
 " == Theme
 Plug 'altercation/vim-colors-solarized'
+" Plug 'junegunn/seoul256.vim'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
@@ -123,6 +140,29 @@ let g:solarized_termtrans=1
 
 " Workaround for docker
 colorscheme solarized
+
+" ==== gutentags settings ====
+" Exclude css, html, js files from generating tag files
+let g:gutentags_ctags_exclude = ['*.css', '*.html', '*.js', '*.json', '*.xml',
+                            \ '*.phar', '*.ini', '*.rst', '*.md']
+" Where to store tag files
+let g:gutentags_cache_dir = '~/.vim/gutentags'
+" ==== End gutentags settings ====
+
+" ==== CtrlP settings ====
+" Open CtrlP buffers
+map <tab> :CtrlPBuffer<cr>
+map <leader>tb :CtrlPBufTagAll<cr>
+map <leader>ta :CtrlPTag<cr>
+" Jump to definition
+map <silent> <leader>jd :CtrlPTag<cr><C-\>w
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
+let g:ctrlp_match_current_file = 1
+let g:ctrlp_lazy_update = 1
+let g:ctrlp_extensions = ['tag', 'buffertag']
+let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+let g:ctrlp_use_caching = 0
+" ==== End CtrlP settings ====
 
 " Local config
 if filereadable($HOME . "/.vimrc.local")
