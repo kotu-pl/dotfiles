@@ -109,6 +109,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'edkolev/tmuxline.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'ludovicchabant/vim-gutentags'
+Plug 'szw/vim-maximizer'
 " Plug 'mileszs/ack.vim'
 " Plug 'tpope/vim-fugitive'
 
