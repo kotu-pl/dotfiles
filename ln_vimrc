@@ -51,7 +51,7 @@ set splitright
 " nnoremap <C-L> <C-W><C-L>
 " nnoremap <C-H> <C-W><C-H>
 
-" better splitting 
+" better splitting
 
 nnoremap <C-W>\ :sp<CR>
 nnoremap <C-W><bar> :vsp<CR>
@@ -61,7 +61,7 @@ nnoremap <C-W>+ :exe "resize " . (winheight(0) * 3/2)<CR>
 nnoremap <C-W>- :exe "resize " . (winheight(0) * 2/3)<CR>
 
 " Tabs
-" next/prev with Shift 
+" next/prev with Shift
 nnoremap H gT
 nnoremap L gt
 
@@ -123,7 +123,16 @@ Plug 'thoughtbot/vim-rspec'
 Plug 'tpope/vim-endwise'
 Plug 'sheerun/vim-polyglot'
 Plug 'jiangmiao/auto-pairs'
+Plug 'vim-scripts/comments.vim'
+Plug 'Chiel92/vim-autoformat'
 " Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+" Plug 'junegunn/vim-easy-align'
+
+" == Filesystem
+Plug 'pbrisbin/vim-mkdir'
+
+" == Console
+Plug 'ConradIrwin/vim-bracketed-paste'
 
 " == Theme
 Plug 'altercation/vim-colors-solarized'
@@ -145,7 +154,7 @@ colorscheme solarized
 " ==== gutentags settings ====
 " Exclude css, html, js files from generating tag files
 let g:gutentags_ctags_exclude = ['*.css', '*.html', '*.js', '*.json', '*.xml',
-                            \ '*.phar', '*.ini', '*.rst', '*.md']
+      \ '*.phar', '*.ini', '*.rst', '*.md']
 " Where to store tag files
 let g:gutentags_cache_dir = '~/.vim/gutentags'
 " ==== End gutentags settings ====
@@ -164,6 +173,14 @@ let g:ctrlp_extensions = ['tag', 'buffertag']
 let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 let g:ctrlp_use_caching = 0
 " ==== End CtrlP settings ====
+
+" ==== Autoformat settings ====
+noremap <F4> :Autoformat<CR>
+au BufWrite *.rb :Autoformat
+" let g:autoformat_autoindent = 0
+" let g:autoformat_retab = 0
+" let g:autoformat_remove_trailing_spaces = 0
+" ==== End Autoformat settings ====
 
 " Local config
 if filereadable($HOME . "/.vimrc.local")

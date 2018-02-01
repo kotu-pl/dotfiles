@@ -11,7 +11,9 @@ Dockerfile for Arch Linux:
 ```
 FROM base/archlinux
 
-RUN pacman -Syu sudo vim git curl zsh tmux fontconfig --noconfirm
+RUN pacman -Syu sudo vim ruby git curl zsh tmux fontconfig --noconfirm
+
+RUN gem install rubocop
 
 RUN useradd -m -G wheel -s /bin/zsh tester
 
@@ -65,7 +67,7 @@ RUN apt-get update
 RUN add-apt-repository -yu ppa:pi-rho/dev
 RUN apt-get install -y tmux-next=2.7~20171218~bzr4009+21-1ubuntu1~ppa0~ubuntu16.04.1
 
-RUN gem install tmuxinator
+RUN gem install tmuxinator rubocop
 
 RUN adduser --shell /bin/zsh --gecos 'tester' --disabled-password tester
 RUN adduser tester sudo
