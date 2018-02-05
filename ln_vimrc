@@ -22,6 +22,9 @@ set softtabstop=2
 set tabstop=2
 set expandtab
 
+" ================ Max column length indicator ======================
+set colorcolumn=80
+
 " ================ Search ===========================
 
 set incsearch       " Find the next match as we type the search
