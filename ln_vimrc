@@ -173,13 +173,13 @@ colorscheme solarized
 
 "--------------- Spellcheck colors
 highlight clear SpellBad
-highlight SpellBad term=standout ctermfg=1 term=underline cterm=underline
+highlight SpellBad term=standout ctermfg=1 term=underline,bold cterm=underline,bold
 highlight clear SpellCap
-highlight SpellCap term=underline cterm=underline
+highlight SpellCap term=underline,bold cterm=underline,bold
 highlight clear SpellRare
-highlight SpellRare term=underline cterm=underline
+highlight SpellRare term=underline,bold cterm=underline,bold
 highlight clear SpellLocal
-highlight SpellLocal term=underline cterm=underline
+highlight SpellLocal term=underline,bold cterm=underline,bold
 " -----------------------------
 "
 " ==== gutentags settings ====
