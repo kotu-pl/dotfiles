@@ -84,13 +84,16 @@ nnoremap td  :tabclose<CR>
 
 " ============== Spellcheck
 " keystrokes: s] [s z= 1z= 
+" zg to add word to word list 
+" zw to reverse
+" zug to remove word from word list 
+" z= to get list of possibilities
 nmap <silent> <leader>s :set spell!<CR>
-set spelllang=en_us
-" Set spellfile to location that is guaranteed to exist, can be symlinked to
-" Dropbox or kept in Git and managed outside of thoughtbot/dotfiles using rcm.
-" set spellfile=$HOME/.vim/spell/-en.utf-8.add
-" Autocomplete with dictionary words when spell check is on
+set spell spelllang=en_us
 set complete+=kspell
+
+
+"=========================================
 
 " ================ Turn Off Swap Files ==============
 "
@@ -168,6 +171,17 @@ let g:solarized_termtrans=1
 " Workaround for docker
 colorscheme solarized
 
+"--------------- Spellcheck colors
+highlight clear SpellBad
+highlight SpellBad term=standout ctermfg=1 term=underline cterm=underline
+highlight clear SpellCap
+highlight SpellCap term=underline cterm=underline
+highlight clear SpellRare
+highlight SpellRare term=underline cterm=underline
+highlight clear SpellLocal
+highlight SpellLocal term=underline cterm=underline
+" -----------------------------
+"
 " ==== gutentags settings ====
 " Exclude css, html, js files from generating tag files
 let g:gutentags_ctags_exclude = ['*.css', '*.html', '*.js', '*.json', '*.xml',
