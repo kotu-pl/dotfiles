@@ -34,6 +34,9 @@ set smartcase       " ...unless we type a capital
 
 " Show line numbers
 set number
+" Toggle line numbers from none at all
+noremap <F5> :set invnumber<CR>
+
 " Rendering
 set ttyfast
 
@@ -79,6 +82,16 @@ nnoremap tn  :tabnext<Space>
 nnoremap tm  :tabm<Space>
 nnoremap td  :tabclose<CR>
 
+" ============== Spellcheck
+" keystrokes: s] [s z= 1z= 
+nmap <silent> <leader>s :set spell!<CR>
+set spelllang=en_us
+" Set spellfile to location that is guaranteed to exist, can be symlinked to
+" Dropbox or kept in Git and managed outside of thoughtbot/dotfiles using rcm.
+" set spellfile=$HOME/.vim/spell/-en.utf-8.add
+" Autocomplete with dictionary words when spell check is on
+set complete+=kspell
+
 " ================ Turn Off Swap Files ==============
 "
 set noswapfile
@@ -114,6 +127,7 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'szw/vim-maximizer'
 Plug 'tpope/vim-fugitive'
+Plug 'jeffkreeftmeijer/vim-numbertoggle'
 " Plug 'mileszs/ack.vim'
 
 " == Code
