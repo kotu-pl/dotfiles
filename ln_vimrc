@@ -122,6 +122,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'FelikZ/ctrlp-py-matcher'
+Plug 'dkprice/vim-easygrep'
 
 " Navigation
 Plug 'christoomey/vim-tmux-navigator'
