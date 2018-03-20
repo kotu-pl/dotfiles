@@ -5,6 +5,12 @@ let maplocalleader = ' '
 " " This must be first, because it changes other options as a side effect.
 set nocompatible
 
+" Tweaks
+" slow cursor issues https://github.com/groenewege/vim-less/issues/56
+"
+set re=1
+set lazyredraw
+
 " ================ Undofile ======================
 
 set undodir=~/.vim/undo
