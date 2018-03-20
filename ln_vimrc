@@ -31,6 +31,10 @@ set expandtab
 " ================ Max column length indicator ======================
 set colorcolumn=80
 
+" =============== Autoreload ========================
+
+set autoread | au CursorHold * checktime | call feedkeys("jk")
+
 " ================ Search ===========================
 
 set incsearch       " Find the next match as we type the search
