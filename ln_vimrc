@@ -39,9 +39,10 @@ set ignorecase      " Ignore case when searching...
 set smartcase       " ...unless we type a capital
 
 " Show line numbers
-set number
+set number relativenumber
 " Toggle line numbers from none at all
-noremap <F5> :set invnumber<CR>
+noremap <F5> :set invnumber relativenumber!<CR>
+noremap <C-F5> :set relativenumber!<CR>
 
 " Rendering
 set ttyfast
