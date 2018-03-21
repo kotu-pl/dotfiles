@@ -31,10 +31,6 @@ set expandtab
 " ================ Max column length indicator ======================
 set colorcolumn=80
 
-" =============== Autoreload ========================
-
-set autoread | au CursorHold * checktime | call feedkeys("jk")
-
 " ================ Search ===========================
 
 set incsearch       " Find the next match as we type the search
@@ -161,6 +157,7 @@ Plug 'Chiel92/vim-autoformat'
 
 " == Filesystem
 Plug 'pbrisbin/vim-mkdir'
+Plug 'djoshea/vim-autoread'
 
 " == Console
 Plug 'ConradIrwin/vim-bracketed-paste'
