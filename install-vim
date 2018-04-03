@@ -12,4 +12,5 @@ mkdir -p ~/.vim/undo
 vim +PlugInstall +qall
 
 # Docker build workaround 
-sed --in-place --follow-symlinks 's/" colorscheme solarized/colorscheme solarized/g' ~/.vimrc
+# TODO: different workaround or sed options for mac os
+#sed --in-place --follow-symlinks 's/" colorscheme solarized/colorscheme solarized/g' ~/.vimrc

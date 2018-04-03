@@ -27,6 +27,7 @@ fi
 
 # ASDF manager
 if ! which asdf; then
+  #TODO: add removal or existence check 
   git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch master
 fi
 
@@ -43,14 +44,19 @@ curl -L https://github.com/powerline/powerline/raw/develop/font/10-powerline-sym
 
 mkdir -p ~/.fonts/
 mv /tmp/PowerlineSymbols.otf ~/.fonts/
-fc-cache -vf ~/.fonts/
+
+if which fc-cache &> /dev/null; then
+  fc-cache -vf ~/.fonts/
+fi
 
 mkdir -p ~/.config/fontconfig/conf.d/
 mv /tmp/10-powerline-symbols.conf ~/.config/fontconfig/conf.d/
 
-# Rtorrent folders
-mkdir -p ~/torrents/downloads
-mkdir -p ~/torrents/watch
-mkdir -p ~/torrents/session
+if which rtorrent &> /dev/null; then
+  # Rtorrent folders
+  mkdir -p ~/torrents/downloads
+  mkdir -p ~/torrents/watch
+  mkdir -p ~/torrents/session
+fi
 
 $BASE/install-vim
