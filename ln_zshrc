@@ -53,5 +53,13 @@ if [ -d $HOME/.zshrc.d ]; then
   done
 fi
 
+if [ -d $HOME/aliases ]; then
+  for file in $HOME/aliases/* $HOME/aliases/**/*; do
+    if [ -f $file ]; then
+      source $file
+    fi
+  done
+fi
+
 # Local config
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
