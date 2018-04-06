@@ -1,23 +1,33 @@
 #!/bin/bash
-set -e 
+set -e
 
 BASE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+BASE_DIR_NAME=`basename "$BASE"`
+if [ -d $BASE/../$BASE_DIR_NAME"_private" ]; then
+  BASE_PRIVATE=$BASE/../$BASE_DIR_NAME"_private"
+fi
 
-for config_to_link in $BASE/ln_*; do
-  mkdir -pv $BASE/backup
-  config_name=${config_to_link#*_}
-  [ -e ~/.$config_name ] && [ ! -L ~/.$config_name ] && mv -v ~/.$config_name $BASE/backup/.$config_name
-  ln -sfv $config_to_link ~/.$config_name
-done
+source $BASE/functions
 
-mkdir -p ~/bin
+link_configs $BASE
+if [ -n "$BASE_PRIVATE" ]; then
+  link_configs $BASE_PRIVATE
+fi
 
-for executable in $BASE/bin/ln_*; do
-  mkdir -pv $BASE/backup/bin
-  exec_name=${executable#*_}
-  [ -e ~/bin/$exec_name ] && [ ! -L ~/bin/$exec_name ] && mv -v ~/bin/$exec_name $BASE/backup/bin/$exec_name
-  ln -svf $executable ~/bin/$exec_name
-done
+mkdir -pv ~/bin
+
+link_executables $BASE
+if [ -n "$BASE_PRIVATE" ]; then
+  link_executables $BASE_PRIVATE
+fi
+
+mkdir -pv ~/aliases
+
+link_aliases $BASE
+if [ -n "$BASE_PRIVATE" ]; then
+  link_aliases $BASE_PRIVATE
+fi
+
 
 if ! which tmux && which tmux-next &> /dev/null; then
   echo '#!/bin/sh' > ~/bin/tmux
@@ -37,7 +47,7 @@ fi
 mkdir -p ~/.zshrc.d
 cp $BASE/zshrc.d/* ~/.zshrc.d/
 
-# Install Powerline fonts 
+# Install Powerline fonts
 curl -L https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf > /tmp/PowerlineSymbols.otf
 curl -L https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf > /tmp/10-powerline-symbols.conf
 
