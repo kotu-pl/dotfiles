@@ -26,8 +26,7 @@ if ! which tmux && which tmux-next &> /dev/null; then
 fi
 
 # ASDF manager
-if ! which asdf; then
-  #TODO: add removal or existence check 
+if [ ! -d ~/.asdf ]; then
   git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch master
 fi
 
