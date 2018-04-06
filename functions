@@ -4,9 +4,11 @@ set -e
 function link_configs {
   mkdir -pv $1/backup
   for config_to_link in $1/ln_*; do
-    config_name=${config_to_link#*_}
-    [ -f ~/.$config_name ] && [ ! -L ~/.$config_name ] && mv -v ~/.$config_name $1/backup/.$config_name
-    ln -sfv $config_to_link ~/.$config_name
+    if [ -f config_to_link ]; then
+      config_name=${config_to_link#*_}
+      [ -f ~/.$config_name ] && [ ! -L ~/.$config_name ] && mv -v ~/.$config_name $1/backup/.$config_name
+      ln -sfv $config_to_link ~/.$config_name
+    fi
   done
 }
 
