@@ -53,6 +53,8 @@ zle -N zle-keymap-select
 HISTFILE=~/.histfile                                                            
 HISTSIZE=10000000                                                                   
 SAVEHIST=10000000
+HISTORY_IGNORE="tp *"
+
 setopt share_history                                                          
 setopt hist_ignore_all_dups                                                     
 setopt hist_ignore_space
