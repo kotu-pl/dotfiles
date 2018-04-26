@@ -114,10 +114,6 @@ imap <C-s> <esc>:w<CR>
 nnoremap <Leader>q :q<cr>
 nnoremap <Leader>Q :qa!<cr>
 
-" <F10> | NERD Tree
-inoremap <F10> <esc>:NERDTreeToggle<cr>
-nnoremap <F10> :NERDTreeToggle<cr>
-
 " ===============  VIM-PLUG BLOCK ==================
 
 call plug#begin('~/.vim/plugged')
@@ -125,6 +121,24 @@ call plug#begin('~/.vim/plugged')
 " == Browse
 " Plug 'wincent/command-t'
 Plug 'scrooloose/nerdtree'
+"{{{
+  inoremap <F10> <esc>:NERDTreeToggle<cr>
+  nnoremap <F10> :NERDTreeToggle<cr>
+
+  function! s:syncTree()
+    let s:curwnum = winnr()
+    NERDTreeFind
+    exec s:curwnum . "wincmd w"
+  endfunction
+
+  function! s:syncTreeIf()
+    if (winnr("$") > 1)
+      call s:syncTree()
+    endif
+  endfunction
+  
+  autocmd BufEnter * call s:syncTreeIf()
+"}}}
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'FelikZ/ctrlp-py-matcher'
