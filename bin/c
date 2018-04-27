@@ -1,0 +1,7 @@
+#!/bin/sh
+
+function c() { 
+  awk "{print \$$1}" 
+}
+
+c $1
