@@ -2,7 +2,7 @@
 
 function f {
   local path="${2:-$(pwd)}"
-  grep -ri $1 $path
+  egrep -ri $1 $path
 }
 
 f $1 $2
