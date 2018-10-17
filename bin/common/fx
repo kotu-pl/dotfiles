@@ -1,0 +1,8 @@
+#!/bin/sh
+
+function f {
+  local path="${2:-$(pwd)}"
+  egrep -ri $1 $path
+}
+
+f $1 $2
