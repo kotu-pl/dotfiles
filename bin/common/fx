@@ -2,7 +2,7 @@
 
 function f {
   local path="${2:-$(pwd)}"
-  egrep -ri $1 $path
+  egrep --color=always -ri $1 $path
 }
 
 f $1 $2
