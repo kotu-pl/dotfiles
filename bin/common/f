@@ -2,7 +2,7 @@
 
 function f {
   local path="${2:-$(pwd)}"
-  grep -ri $1 $path
+  grep --color=always -ri $1 $path
 }
 
 f $1 $2
