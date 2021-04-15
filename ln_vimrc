@@ -161,6 +161,14 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'vim-scripts/comments.vim'
 Plug 'Chiel92/vim-autoformat'
 Plug 'vim-airline/vim-airline'
+Plug 'dart-lang/dart-vim-plugin'
+Plug 'natebosch/vim-lsc'
+"{{{
+let g:lsc_auto_map = v:true
+"}}}
+Plug 'natebosch/vim-lsc-dart'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 "{{{
   let g:airline#extensions#ale#enabled = 1
   let g:airline#extensions#tmuxline#enabled = 0
@@ -263,6 +271,13 @@ noremap <F4> :Autoformat<CR>
 " let g:autoformat_autoindent = 0
 " let g:autoformat_retab = 0
 " let g:autoformat_remove_trailing_spaces = 0
+" ==== End Autoformat settings ====
+
+" ==== CoC.nvim settings ====
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 " ==== End Autoformat settings ====
 
 " Local config

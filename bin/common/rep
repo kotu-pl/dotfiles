@@ -1,7 +1,7 @@
 #!/bin/sh
 
 function rep {
-  find . -type f | xargs perl -pi -e "s/${1}/g"
+  find ${2} -type f | xargs perl -pi -e "s/${1}/g"
 }
 
-rep $1
+rep $1 $2
