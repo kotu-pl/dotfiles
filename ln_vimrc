@@ -278,7 +278,11 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-" ==== End Autoformat settings ====
+" ==== End Coc.nvim settings ====
+
+" ==== pg_format settings ====
+au FileType sql setl formatprg=/usr/local/bin/pg_format\ -
+" ==== End pg_format settings ====
 
 " Local config
 if filereadable($HOME . "/.vimrc.local")
