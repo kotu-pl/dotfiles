@@ -9,6 +9,9 @@ export KEYTIMEOUT=1
 export VISUAL=vim
 export EDITOR=$VISUAL
 export TERM=xterm-256color
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=3"
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ff00ff,bg=cyan,bold,underline"
+
 
 # VIM mode 
 bindkey -v

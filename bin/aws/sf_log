@@ -1,0 +1,8 @@
+#!/bin/sh
+
+function sf_log {
+  local size="${2:-5}"
+  aws stepfunctions get-execution-history --reverse-order --max-items $size --execution-arn $1
+}
+
+sf_log $1 $2
