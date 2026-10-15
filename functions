@@ -2,12 +2,18 @@
 set -e
 
 function link_configs {
-  mkdir -pv $1/backup
-  for config_to_link in $1/ln_*; do
-    if [ -f $config_to_link ]; then
-      config_name=${config_to_link#*_}
-      [ -f ~/.$config_name ] && [ ! -L ~/.$config_name ] && mv -v ~/.$config_name $1/backup/.$config_name
-      ln -sfv $config_to_link ~/.$config_name
+  local base="$1"
+  local config_to_link config_name
+  mkdir -pv "$base/backup"
+  for config_to_link in "$base"/ln_*; do
+    # Also accepts symlinks to local files, but skips missing local secrets.
+    if [ -f "$config_to_link" ]; then
+      config_name=${config_to_link##*/}
+      config_name=${config_name#ln_}
+      if [ -f "$HOME/.$config_name" ] && [ ! -L "$HOME/.$config_name" ]; then
+        mv -v "$HOME/.$config_name" "$base/backup/.$config_name"
+      fi
+      ln -sfv "$config_to_link" "$HOME/.$config_name"
     fi
   done
 }

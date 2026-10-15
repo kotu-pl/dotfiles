@@ -1,3 +1,5 @@
+Configuration layers: [public, private and machine-local settings](CONFIG-LAYERS.md).
+
 Installation:
 
 ```

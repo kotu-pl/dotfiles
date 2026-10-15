@@ -9,8 +9,6 @@
 	editor = vim
 [push]
 	default = current
-[include]
-  path = ~/.gitconfig-local
 [diff]
   tool = vimdiff
   noprefix = true
@@ -30,3 +28,12 @@
 	old = red bold
 	new = green bold
 	whitespace = red reverse
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+
+# Private overrides are loaded last, including the default work identity.
+[include]
+	path = ~/.gitconfig-local
